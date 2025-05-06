@@ -1,0 +1,36 @@
+/* about.css */
+
+/* Apply basic styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #e6cdcd;
+}
+
+/* Style the about section container */
+.about {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #eec2c2;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the heading */
+.about h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333333;
+    font-size: 35px;
+}
+
+/* Style the paragraph text */
+.about p {
+    font-size: 1em;
+    color: #555555;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}

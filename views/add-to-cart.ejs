@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+   
+</head>
+<body>
+    <h1>Your Cart</h1>
+    <div class="cart">
+        <h3>Items in Cart:</h3>
+        <ul class="cart-items">
+            <!-- Cart items will go here -->
+        </ul>
+        <a href="/shop-now" class="checkout" aria-label="Checkout">Checkout</a>
+    </div>
+
+    <!-- Confirm Button Container -->
+    <div class="confirm-container">
+        <!-- Replacing the button with a link styled as a button -->
+        <a href="/confirm" class="confirm-link" aria-label="Confirm Cart">Confirm</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartItemsList = document.querySelector('.cart-items');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.innerText = `${item.title} - ${item.price}`;
+                cartItemsList.appendChild(listItem);
+            });
+
+            if (cart.length === 0) {
+                const emptyMessage = document.createElement('li');
+                emptyMessage.innerText = 'Your cart is empty.';
+                cartItemsList.appendChild(emptyMessage);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Purchase!</title>
+    <link rel="stylesheet" href="css/confirm.css">
+</head>
+<body>
+
+   
+
+
+    <div class="thank-you">
+        <h1>Thank You!</h1>
+        <p class="appreciation-message">We appreciate your support and hope you enjoy your new books. If you have any questions or need assistance, please feel free to contact us. Here is your invoice for the items in your cart:</p>
+
+        <div class="invoice">
+            <h3>Invoice</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-items">
+                    <!-- Invoice items will be added here dynamically -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="total">Total</td>
+                        <td id="total-amount"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const invoiceItemsList = document.getElementById('invoice-items');
+            const totalAmountElem = document.getElementById('total-amount');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalAmount = 0;
+
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${item.title}</td><td>${item.price}</td>`;
+                invoiceItemsList.appendChild(row);
+                totalAmount += parseFloat(item.price.replace('$', ''));
+            });
+
+            totalAmountElem.innerText = `$${totalAmount.toFixed(2)}`;
+
+            // Clear the cart from localStorage
+            localStorage.removeItem('cart');
+        });
+    </script>
+</body>
+</html>

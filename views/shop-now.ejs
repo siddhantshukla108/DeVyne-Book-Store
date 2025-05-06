@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="stylesheet" href="/css/shopnow.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Book List</h1>
+        <div class="book-list">
+            <article class="book">
+                <img src="images/chemistry.jpg" alt="Cover of NCERT Chemistry">
+                <h2>NCERT Chemistry</h2>
+                <p>Price: 310 rupees</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </article>
+            <article class="book">
+                <img src="images/maths.jpg" alt="Cover of Maths Book">
+                <h2>Maths Book</h2>
+                <p>Price: 365 rupees</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </article>
+            <article class="book">
+                <img src="images/tempest.jpg" alt="Cover of The Tempest">
+                <h2>The Tempest</h2>
+                <p>Price: 499 rupees</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </article>
+            <article class="book">
+                <img src="images/geeta.jpg" alt="Cover of The Shrimadbhagvat Geeta">
+                <h2>The Shrimadbhagvat Geeta</h2>
+                <p>Price: 108 rupees</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </article>
+        </div>
+    </div>
+    <script>
+        // Function to add a book to the cart
+        function addToCart(book) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(book);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // Attach event listeners to "Add to Cart" buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const bookElement = event.target.closest('.book');
+                    const bookTitle = bookElement.querySelector('h2').innerText;
+                    const bookPrice = bookElement.querySelector('p').innerText;
+
+                    const book = {
+                        title: bookTitle,
+                        price: bookPrice
+                    };
+
+                    addToCart(book);
+                    alert(`${bookTitle} has been added to your cart!);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(157, 215, 238);
+}
+
+.container {
+    width: 80%; /* Adjusted width for better layout */
+    margin: auto;
+    overflow: hidden;
+    
+}
+
+.members-wrapper {
+    display: flex; /* Flexbox layout for horizontal alignment */
+    flex-wrap: wrap; /* Allows wrapping to the next line if there is not enough space */
+    gap: 20px; /* Space between member items */
+    justify-content: space-between; /* Distributes space evenly between items */
+}
+
+.members {
+    border: 1px solid #ccc;
+    padding: 15px;
+    flex: 1 1 calc(25% - 20px); /* Flex-grow, flex-shrink, and basis to ensure responsive layout */
+    box-sizing: border-box; /* Ensures padding and border are included in element’s total width and height */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    background-color: rgb(190, 158, 158);
+}
+
+.members img {
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.info {
+    text-align: center; /* Center align text for better presentation */
+}
+
+.info p {
+    margin: 3px 0;
+    font-size: 16px;
+}
+
+a {
+    color: #1a0dab;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

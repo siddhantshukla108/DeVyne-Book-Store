@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Online Bookstore</title>
+    <link rel="stylesheet" href="css/feedback.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Feedback</h1>
+        
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+            <h2>Submit Your Feedback</h2>
+            <form id="feedbackForm">
+                <input type="text" id="username" placeholder="Your Name" required>
+                <textarea id="feedback" rows="4" placeholder="Enter your feedback here..." required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+        
+        <!-- Feedback List -->
+        <h2>What Our Customers Say</h2>
+        <ul class="feedback-list" id="feedbackList">
+            <!-- Feedback items will be displayed here -->
+        </ul>
+    </div>
+
+    <script>
+        // Load feedback from localStorage when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFeedback();
+        });
+
+        // JavaScript to handle form submission and displaying feedback
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const username = document.getElementById('username').value;
+            const feedback = document.getElementById('feedback').value;
+            
+            // Create a new feedback object
+            const feedbackItem = { username, feedback };
+            
+            // Get existing feedback from localStorage or create an empty array
+            let feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+            
+            // Add the new feedback to the list
+            feedbackList.push(feedbackItem);
+            
+            // Save the updated list back to localStorage
+            localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
+            
+            // Add the new feedback item to the display list
+            displayFeedback(feedbackItem, feedbackList.length - 1);
+            
+            // Clear the form
+            document.getElementById('feedbackForm').reset();
+        });
+
+        // Function to delete feedback
+        function deleteFeedback(index) {
+            // Get existing feedback from localStorage
+            let feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+            
+            // Remove the feedback item at the specified index
+            feedbackList.splice(index, 1);
+            
+            // Save the updated list back to localStorage
+            localStorage.setItem('feedbackList', JSON.stringify(feedbackList));
+            
+            // Reload the feedback list to reflect changes
+            loadFeedback();
+        }
+
+        // Function to load feedback from localStorage and display it
+        function loadFeedback() {
+            const feedbackList = JSON.parse(localStorage.getItem('feedbackList')) || [];
+            const feedbackContainer = document.getElementById('feedbackList');
+            
+            // Clear the current list
+            feedbackContainer.innerHTML = '';
+            
+            // Display stored feedback
+            feedbackList.forEach((feedback, index) => {
+                displayFeedback(feedback, index);
+            });
+        }
+
+        // Function to create and append a feedback item to the list
+        function displayFeedback(feedback, index) {
+            const feedbackItem = document.createElement('li');
+            feedbackItem.className = 'feedback-item';
+            feedbackItem.innerHTML =` <div><h4>${feedback.username}</h4><p>${feedback.feedback}</p></div><button onclick="deleteFeedback(${index})">Delete</button>`;
+            document.getElementById('feedbackList').appendChild(feedbackItem);
+        }
+    </script>
+</body>
+</html>

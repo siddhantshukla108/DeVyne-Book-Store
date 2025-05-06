@@ -1,0 +1,78 @@
+
+/* 
+CSS FOR Sign-in button 
+
+ Universal reset  */
+
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #c6bae2;
+}
+
+/* Form container styling */
+form {
+    background-color: #5db6e2;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Form heading */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0c0101;
+}
+
+/* Input fields styling */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #868181;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    color: gainsboro;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Label styling */
+label {
+    margin-bottom: 8px;
+    display: block;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* For better spacing between input fields */
+form div {
+    margin-bottom: 15px;
+} 

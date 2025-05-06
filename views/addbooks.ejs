@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload New Book - Online Book Store</title>
+    <link rel="stylesheet" href="css/addbooks.css">
+</head>
+
+<body>
+
+    <div class="upload-container">
+        <h1>Upload a New Book</h1>
+        <p>Fill out the details below to add a new book to our collection.</p>
+
+        <form class="upload-form" id="uploadBookForm">
+            <div class="form-group">
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" name="bookTitle" placeholder="Enter book title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="Enter author name" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="prics" name="price" placeholder="Enter book price" required>
+            </div>
+
+           
+
+            <div class="form-group">
+                <label for="coverImage">Upload Cover Image</label>
+                <input type="file" id="coverImage" name="coverImage" accept="image/*" required>
+            </div>
+
+
+            <button type="submit" class="submit-btn">Upload Book</button>
+        </form>
+    </div>
+
+    <script src=""></script>
+
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+
+
+    
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .thank-you {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .appreciation-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .invoice {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .invoice h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .invoice table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .invoice th, .invoice td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .invoice th {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .invoice .total {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    
